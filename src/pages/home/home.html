@@ -1,0 +1,201 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <button ion-button icon-only menuToggle clear color="dark">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    	<ion-title color="light">
+            <img [src]="'assets/images/logo-raf.png'" class="app-logo" />
+        </ion-title>
+    	<ion-buttons end>
+	        <button ion-button icon-only clear color="dark" (click)="showLangSelector()">
+                <ion-icon name="md-globe"></ion-icon>
+            </button>
+            <button ion-button icon-only clear color="dark" (click)="showCart()">
+                <ion-icon name="cart"></ion-icon>
+                <span class="cart-count">{{cart_total}}</span>
+            </button>
+	    </ion-buttons>
+    </ion-navbar>
+    <!-- <div class="search-bar-wrap">
+        <div class="search-bar">
+            <ion-searchbar [(ngModel)]="searchTerm" ></ion-searchbar>
+            <button ion-button outline small (click)="textSearch()" color="light">{{'SEARCH' | translate}}</button>
+        </div>
+    </div> -->
+</ion-header>
+
+<ion-content padding class="card-background-page">
+
+        <div class="banner skeleton">
+
+            <ion-slides id="slider">
+
+                <ion-slide class="banner-placeholder" *ngIf="slides.length == 0">
+                    <!-- <h3 class="slide-title">{{slide.title}}</h3> -->
+                    <ion-icon name="image"></ion-icon>
+                </ion-slide>
+
+                <ion-slide *ngFor="let slide of slides">
+                    <!-- <h3 class="slide-title">{{slide.title}}</h3> -->
+                    <img [src]="slide.image">
+                </ion-slide>
+            </ion-slides>
+    
+        </div>
+
+        <section class="section-home">
+            <div class="section-header">
+                <h4 class="section-title">{{'Categories' | translate}}</h4>
+                <button ion-button color="dark" small (click)="allCategories()">{{'VIEW ALL' | translate}}</button>
+            </div>
+            <ion-slides class="custom-slider cat-slider" slidesPerView="3" spaceBetween="3" pager="true">
+
+                <ion-slide class="cat-placeholder" *ngIf="categories.length == 0">
+                    <div class="service card-ios">
+                        <div class="service-icon">
+                            <ion-icon name="image"></ion-icon>
+                        </div>
+                        <div class="service-name">
+                            <span></span>
+                        </div>
+                    </div>
+                </ion-slide>
+                <ion-slide class="cat-placeholder" *ngIf="categories.length == 0">
+                    <div class="service card-ios">
+                        <div class="service-icon">
+                            <ion-icon name="image"></ion-icon>
+                        </div>
+                        <div class="service-name">
+                            <span></span>
+                        </div>
+                    </div>
+                </ion-slide>
+                <ion-slide class="cat-placeholder" *ngIf="categories.length == 0">
+                    <div class="service card-ios">
+                        <div class="service-icon">
+                            <ion-icon name="image"></ion-icon>
+                        </div>
+                        <div class="service-name">
+                            <span></span>
+                        </div>
+                    </div>
+                </ion-slide>
+
+
+
+                <ion-slide *ngFor="let category of categories">
+                    <div class="service card-ios" (click)="getServices(category)">
+                        <div class="service-icon">
+                            <img class="logo" [src]="category.image"/>
+                        </div>
+                        <div class="service-name" [ngClass]="{ rtl : language == 'ar' }">
+                            {{category.name | translate}}
+                        </div>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+        </section>
+
+        <section class="section-home">
+            <div class="section-header">
+                <h4 class="section-title">{{'Celebrities' | translate}}</h4>
+                <button ion-button color="dark" small (click)="allCelebrities()">{{'VIEW ALL' | translate}}</button>
+            </div>
+            <ion-slides class="custom-slider" slidesPerView="3" spaceBetween="3" pager="true">
+
+                <ion-slide class="cat-placeholder" *ngIf="celbrities.length == 0">
+                    <div class="service card-ios">
+                        <div class="service-icon">
+                            <ion-icon name="image"></ion-icon>
+                        </div>
+                        <div class="service-name">
+                            <span></span>
+                        </div>
+                    </div>
+                </ion-slide>
+                <ion-slide class="cat-placeholder" *ngIf="celbrities.length == 0">
+                    <div class="service card-ios">
+                        <div class="service-icon">
+                            <ion-icon name="image"></ion-icon>
+                        </div>
+                        <div class="service-name">
+                            <span></span>
+                        </div>
+                    </div>
+                </ion-slide>
+                <ion-slide class="cat-placeholder" *ngIf="celbrities.length == 0">
+                    <div class="service card-ios">
+                        <div class="service-icon">
+                            <ion-icon name="image"></ion-icon>
+                        </div>
+                        <div class="service-name">
+                            <span></span>
+                        </div>
+                    </div>
+                </ion-slide>
+
+                <ion-slide *ngFor="let celeb of celbrities">
+                    <div class="service card-celeb card-ios" (click)="ViewCelebrity(celeb)">
+                        <div class="service-icon">
+                            <img class="logo" [src]="celeb.photo"/>
+                        </div>
+                        <div class="service-name" [ngClass]="{ rtl : language == 'ar' }">
+                            {{celeb.name | translate}}
+                        </div>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+        </section>
+
+        <section class="section-home last">
+            <div class="section-header">
+                <h4 class="section-title">{{'Vendors' | translate}}</h4>
+                <button ion-button color="dark" small (click)="allVendors()">{{'VIEW ALL' | translate}}</button>
+            </div>
+            <ion-slides class="custom-slider" slidesPerView="3" spaceBetween="3" pager="true">
+
+                <ion-slide class="cat-placeholder" *ngIf="vendors.length == 0">
+                    <div class="service card-ios">
+                        <div class="service-icon">
+                            <ion-icon name="image"></ion-icon>
+                        </div>
+                        <div class="service-name">
+                            <span></span>
+                        </div>
+                    </div>
+                </ion-slide>
+                <ion-slide class="cat-placeholder" *ngIf="vendors.length == 0">
+                    <div class="service card-ios">
+                        <div class="service-icon">
+                            <ion-icon name="image"></ion-icon>
+                        </div>
+                        <div class="service-name">
+                            <span></span>
+                        </div>
+                    </div>
+                </ion-slide>
+                <ion-slide class="cat-placeholder" *ngIf="vendors.length == 0">
+                    <div class="service card-ios">
+                        <div class="service-icon">
+                            <ion-icon name="image"></ion-icon>
+                        </div>
+                        <div class="service-name">
+                            <span></span>
+                        </div>
+                    </div>
+                </ion-slide>
+
+                <ion-slide *ngFor="let vendor of vendors">
+                    <div class="service card-vendor card-ios" (click)="getByVendor(vendor)">
+                        <div class="service-icon">
+                            <img class="logo" [src]="vendor.avatar"/>
+                        </div>
+                        <div class="service-name" [ngClass]="{ rtl : language == 'ar' }">
+                            {{vendor.name | translate}}
+                        </div>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+        </section>
+
+</ion-content>

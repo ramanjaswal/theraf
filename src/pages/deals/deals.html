@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+  	<button ion-button icon-only menuToggle clear color="dark">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title color="dark">Deals</ion-title>
+    <ion-buttons end>
+      <!-- <button ion-button icon-only color="light">
+        <ion-icon name="cart"></ion-icon>
+        <span class="cart-count">{{cart_total}}</span>
+      </button> -->
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="card-background-page">
+
+	<ion-grid class="grid-deals">
+	  <ion-row>
+	    <ion-col col-12 col-sm-6 col-md-6 *ngFor="let deal of deals | async">
+	      <div class="deal card-ios" >
+	      	<div class="deal-icon">
+	      		<img class="logo" [src]="deal.image"/>
+	      	</div>
+	      	<div class="deal-name" [ngClass]="{ rtl : language == 'ar' }">
+	      		{{deal.title}}
+					</div>
+					<div class="deal-button">
+						<button ion-button block color="dark" (click)="activateDeal(deal)">ACTIVATE DEAL</button>
+					</div>
+	      </div>
+	    </ion-col>
+	  </ion-row>
+	</ion-grid>
+
+</ion-content>

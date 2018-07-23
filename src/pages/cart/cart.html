@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title color="dark">My Cart</ion-title>
+    <ion-buttons end>
+      <!-- <button ion-button icon-only color="light">
+        <ion-icon name="cart"></ion-icon>
+        <span class="cart-count">{{cart_total}}</span>
+      </button> -->
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+  	<p *ngIf="cart.items && cart.items.length == 0" class="center no-item">Your cart is empty</p>
+
+  	<ion-card class="card-coupon" *ngIf="is_loaded && cart.items.length > 0">
+  		<ion-card-content class="shipping-note">
+  			Shipping to {{selected_location}}
+  			<button ion-button small outline (click)="changeLocation()">Change</button>
+  		</ion-card-content>
+  	</ion-card>
+
+	<ion-card *ngIf="is_loaded && cart.items.length > 0">
+		<ion-card-content>
+			<ion-list>
+
+			  <ion-item *ngFor="let item of cart.items" class="cart-item">
+			    <div class="item-image">
+			      <img [src]="item.image">
+			    </div>
+			    <div class="item-details">
+				    <h2>{{ item.title }}</h2>
+				    <p>By: {{item.author}}</p>
+				    <p>Qty: {{item.quantity}}</p>
+				    <p *ngIf="item.date"> {{item.date}} |  {{item.time}}</p>
+			    </div>
+			    <div class="item-action">
+			    	<span class="price">{{item.price}} SR</span>
+			    	<button ion-button outline color="danger" (click)="removeItem(item.key)">{{'DELETE' | translate}}</button>
+			    </div>
+			  </ion-item>
+
+			</ion-list>
+		</ion-card-content>
+	</ion-card>
+
+	<ion-card class="card-coupon" *ngIf="is_loaded && cart.items.length > 0">
+		<ion-card-content >
+			<div class="coupon-input-wrapper">
+				<ion-list>
+				  <ion-item>
+				    <ion-input type="text" placeholder="{{'Coupon Code' | translate}}" [(ngModel)]="coupon"></ion-input>
+				  </ion-item>
+				</ion-list>
+				<button *ngIf="!coupon_applied" ion-button color="dark" (click)="applyCoupon()">{{'Apply' | translate}}</button>
+				<button *ngIf="coupon_applied" ion-button color="danger" (click)="removeCoupon()">{{'Remove' | translate}}</button>
+			</div>
+		</ion-card-content>
+	</ion-card>
+
+	<ion-card *ngIf="is_loaded && cart.items.length > 0">
+		<ion-card-content>
+			<table class="cart-details">
+				<tr>
+					<th>{{'Subtotal' | translate}}</th>
+					<td width="100px">{{cart.subtotal}} SR</td>
+				</tr>
+				<tr>
+					<th>{{'Shipping Charges' | translate}}</th>
+					<td width="100px">{{cart.shipping_charges}} SR</td>
+				</tr>
+				<tr>
+					<th>{{'Discount' | translate}}</th>
+					<td>{{cart.discount + coupon_discount}} SR</td>
+				</tr>
+				<tr>
+					<th>{{'Total' | translate}}</th>
+					<td>{{cart.total - coupon_discount}} SR</td>
+				</tr>
+			</table>
+		</ion-card-content>
+	</ion-card>
+
+	
+
+	<div class="btn-wrapper" *ngIf="is_loaded && cart.items.length > 0">
+		<button ion-button block color="dark" (click)="goToAddress()">{{'CHECKOUT' | translate}}</button>
+	</div>
+
+</ion-content>

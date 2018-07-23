@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title color="dark">{{ service.title }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="dark" (click)="showCart()">
+        <ion-icon name="cart"></ion-icon>
+        <span class="cart-count">{{cart_total}}</span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="card-background-page" [ngClass]="{ 'rtl' : language == 'ar' }">
+  <ion-card>
+
+    <ion-slides [ngStyle]="{ 'height' : '200px' }">
+
+      <ion-slide *ngFor="let image of service.gallery" class="productSlide">
+        <img [src]="image"/>
+      </ion-slide>
+
+    </ion-slides>
+
+    <ion-card-content class="service-card">
+
+      <div class="service-availability">
+        <span class="available" *ngIf="service.availability == 'available'">Available</span>
+        <span class="not-available" *ngIf="service.availability == 'not_available'">Not Available</span>
+      </div>
+
+      <ion-card-title>
+        {{ service.title }}
+        <br/>
+        <small>by {{service.author}}</small>
+      </ion-card-title>
+      <h2>{{ toFloat(service.price) + variant_price}} SR {{ service.price_factor }}</h2>
+      <p>
+        {{ service.description }}
+      </p>
+
+      <div class="properties" *ngIf="service.attributes && service.attributes.length > 0">
+        <table class="specifications">
+          <tr *ngFor="let attr of service.attributes">
+            <th>{{attr.attr_title}}</th>
+            <td>{{attr.attr_value}}</td>
+          </tr>
+        </table>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+
+    <ion-list>
+      <ion-item *ngFor="let variant of service.variants">
+          <ion-label>{{variant.variant_name}}</ion-label>
+          <ion-select name="variants[][{{variant.variant_name}}]" (ionChange)="addVariantPrice(variant)" [(ngModel)]="item.variants[variant.variant_name]"  >
+            <ion-option *ngFor="let option of variant.variants_optionss" value="{{option.variant_name}}">{{option.variant_name}} <span *ngIf="option.variant_price && option.variant_price > 0"> + {{option.variant_price}} SR</span></ion-option>
+          </ion-select>
+
+      </ion-item>
+
+      <ion-item class="questions-input" *ngFor="let q of service.questions">
+          <ion-label stacked>{{q.question}} <span class="red" *ngIf="q.is_required">*</span></ion-label>
+          <ion-input type="text" [required]="q.is_required" name="questions[][{{q.question}}]" [(ngModel)]="item.questions[q.question]"></ion-input>
+      </ion-item>
+        
+      
+
+      <ion-item *ngIf="service.manage_calendar">
+          <div class="calendar-month">{{calendarTitle}} <!-- <a (click)="today()">TODAY</a> --></div>
+          <calendar [eventSource]="eventSource" 
+            [calendarMode]="calendar.mode" 
+            [currentDate]="calendar.currentDate"
+            [lockSwipeToPrev]="false" 
+            (onCurrentDateChanged)="onChangeDate($event)"
+            (onTitleChanged)="onViewTitleChanged($event)"></calendar>
+          <!-- <ion-label>Start Date</ion-label> -->
+          <!-- <ion-datetime displayFormat="DD MMMM, YYYY" pickerFormat="DD MM YYYY" name="date" [(ngModel)]="item.date"></ion-datetime> -->
+
+      </ion-item>
+      <!-- <ion-item>
+          <ion-label>Start Time</ion-label>
+          <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" name="time" [(ngModel)]="item.time"></ion-datetime>
+      </ion-item> -->
+      <ion-item *ngIf="service.manage_calendar">
+        <ul class="times-list">
+          <li *ngFor="let time of times" [ngClass]="{ 'disabled' : ( booked_slots.indexOf( time ) > -1 ) }"><label [ngClass]="{ active: item.time == time }"><input type="radio" name="time" [(ngModel)]="item.time" value="{{time}}" />{{time}} : 00</label></li>
+        </ul>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>{{'Quantity' | translate}}</ion-label>
+        <ion-input type="number" placeholder="Enter Quantity" name="quantity" [(ngModel)]="item.quantity"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="service.is_hourly">
+        <ion-label>{{'Number of hours' | translate}}</ion-label>
+        <ion-select name="hours" [(ngModel)]="item.hours">
+          <ion-option *ngFor="let i of fakeArray( service.minimum_hours, service.maximum_hours )" value="{{i}}">{{i}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="service.is_daily">
+        <ion-label>{{'Number of days' | translate}}</ion-label>
+        <ion-select name="days" [(ngModel)]="item.days">
+          <ion-option *ngFor="let i of fakeArray( 1, 30 )" value="{{i}}">{{i}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <div class="card-ios">
+    <button *ngIf="!isOutofstock(service)" [disabled]="service.availability != 'available'" ion-button block color="dark" href="javascript:;" (click)="addToCart()">{{'Add To Cart' | translate}}</button>
+    <button *ngIf="isOutofstock(service)" disabled ion-button block color="dark">{{'Out of Stock' | translate }}</button>
+  </div>
+
+
+</ion-content>

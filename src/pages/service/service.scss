@@ -1,0 +1,157 @@
+page-service{
+
+	.red{
+		color: red;
+	}
+
+	.questions-input input.text-input {
+	    border: 1px solid #eee;
+	    margin-top: 0 !important;
+	    margin-bottom: 0 !important;
+	    height: 32px;
+	    padding: 0 8px;
+	}
+
+	.productSlide{
+		width: 100% !important;
+
+		img{
+			width: 100% !important;
+			height: auto !important;
+			max-height: 1000% !important;
+		}
+
+	}
+
+	.event-detail-container {
+	    display: none;
+	}
+	.properties {
+	    margin-top: 10px;
+	    border-top: 1px solid #eee;
+    	padding-top: 5px;
+	}
+	.properties > ul {
+	    margin: 0;
+	    list-style: none;
+	    padding: 0;
+
+	    &:after {
+		    content: " ";
+		    display: block;
+		    clear: both;
+		}
+	}
+	.properties > ul > li {
+	    color: #666;
+	    padding-bottom: 3px;
+	}
+
+	.monthview-selected {
+	    background-color: #a48255 !important;
+	}
+
+	ul.times-list {
+	    list-style: none;
+	    padding: 0;
+	    margin: 0;
+	}
+
+	ul.times-list > li {
+	    display: inline-block;
+	    float: left;
+	    width: 20%;
+	    padding: 1px;
+	}
+
+	ul.times-list > li > label {
+	    display: block;
+	    border: 1px solid #ddd;
+	    padding: 3px 0;
+	    text-align: center;
+	    font-size: 14px;
+   	    cursor: pointer;
+   	    font-weight: 500;
+
+   	    &.active {
+		    background: #a48255;
+		    color: #fff;
+		    border: 1px solid #a48255;
+		}
+	}
+
+	ul.times-list > li > label input {
+	    visibility: hidden;
+	    width: 0;
+	    height: 0;
+	}
+
+	.monthview-primary-with-event {
+	    background-color: #f0f0f0 !important;
+	    pointer-events: none;
+	    color: #777 !important;
+	}
+
+	.monthview-secondary-with-event {
+	    pointer-events: none;
+	}
+
+	div.calendar-month {
+	    background: #333;
+	    color: #fff;
+	    padding: 10px;
+	    text-align:center;
+	}
+
+	.calendar-month > a {
+	    float: right;
+	}
+
+	li.disabled > label {
+	    background: #ccc !important;
+	    border-color: #ccc !important;
+	    color: #444 !important;
+	    pointer-events: none;
+	}
+
+	.is_rtl .alert-button-group {
+	    direction: rtl;
+	}
+
+	table.specifications {
+		width: 100%;
+		text-align: left;
+
+		tr{
+			>th{
+				width: 25%;
+			}
+		}
+	}
+
+	.service-card.card-content.card-content-ios {
+		position: relative;
+	}
+	.service-availability {
+		position: absolute;
+		right: 10px;
+		top: -10px;
+		z-index: 99;
+	}
+	.service-availability > span {
+		padding: 10px;
+		color: #fff;
+		border-radius: 20px;
+	}
+	.service-availability > span.not-available {
+		background: #F44336;
+	}
+	.service-availability > span.available {
+		background: #4CAF50;
+	}
+	.service-card .card-title.card-title-ios small {
+		text-align: right;
+		display: block;
+	}
+}
+

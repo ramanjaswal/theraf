@@ -1,0 +1,65 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button icon-only menuToggle clear color="dark">
+				<ion-icon name="menu"></ion-icon>
+		</button>
+    	<ion-title color="dark">{{'Customer Registration' | translate}}</ion-title>
+    	<!-- <ion-buttons end>
+	      <button ion-button (click)="dismiss()" class="btn-white">
+	        <ion-icon name="md-close"></ion-icon>
+	      </button>
+	    </ion-buttons> -->
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  	<form (submit)="register()">
+	  	<ion-list>
+
+		  <ion-item>
+		    <ion-label floating>First Name</ion-label>
+		    <ion-input type="text" name="fname" [(ngModel)]="user.fname"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label floating>Last Name</ion-label>
+		    <ion-input type="text" name="lname" [(ngModel)]="user.lname"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+			  <ion-label floating>Date Of Birth</ion-label>
+			  <ion-datetime displayFormat="MM/DD/YYYY" name="dob" min="1900" max="2000" [(ngModel)]="user.dob"></ion-datetime>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label floating>Email</ion-label>
+		    <ion-input type="email" name="email" [(ngModel)]="user.email"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label floating>Confirm Email</ion-label>
+		    <ion-input type="email" name="cemail" [(ngModel)]="user.cemail"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label floating>Mobile</ion-label>
+		    <ion-input type="text" name="mobile" [(ngModel)]="user.mobile"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label floating>Password</ion-label>
+		    <ion-input type="password" name="password" [(ngModel)]="user.password"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label floating>Confirm Password</ion-label>
+		    <ion-input type="password" name="cpassword" [(ngModel)]="user.cpassword"></ion-input>
+		  </ion-item>
+
+		</ion-list>
+		<p>By registering you agree to our <a href="javascript:;" (click)="openTerms()">terms and conditions</a>.</p>
+		<button ion-button color="dark" block>{{'REGISTER' | translate}}</button>
+	</form>
+
+</ion-content>

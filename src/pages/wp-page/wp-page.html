@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <button ion-button icon-only menuToggle clear color="dark">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    	<ion-title color="light">{{page.title | translate}}</ion-title>
+    	<ion-buttons end>
+	      
+            <button ion-button icon-only clear color="dark" (click)="showCart()">
+                <ion-icon name="cart"></ion-icon>
+                <span class="cart-count">{{cart_total}}</span>
+            </button>
+	    </ion-buttons>
+    </ion-navbar>
+    <!-- <div class="search-bar-wrap">
+        <div class="search-bar">
+            <ion-searchbar [(ngModel)]="searchTerm" ></ion-searchbar>
+            <button ion-button outline small (click)="textSearch()" color="light">{{'SEARCH' | translate}}</button>
+        </div>
+    </div> -->
+</ion-header>
+
+<ion-content padding class="card-background-page">
+    <ion-card *ngIf="is_loaded" class="card-page">
+        <ion-card-header>{{ page.title }}</ion-card-header>
+        <ion-card-content>
+            <div [innerHtml]="page.content"></div>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

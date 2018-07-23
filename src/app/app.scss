@@ -1,0 +1,323 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+.rtl {
+    direction: rtl;
+}
+.center {
+    text-align: center;
+}
+.header-margin {
+    margin-top: 20px;
+}
+.btn-wrapper {
+    padding: 0 11px;
+    padding-bottom: 10px;
+}
+
+.btn-logout span.button-inner {
+    line-height: 4.4rem !important;
+    margin: 0 !important;
+    color: #fff !important;
+}
+
+ion-header{
+
+	ion-title{
+		.logo{
+			max-height: 42px;
+			margin-top: 6px;
+		}
+		/*.toolbar-title{
+			color: #fff;
+		}*/
+	}
+	
+	/*.toolbar .toolbar-background{
+		background: #A48255
+	}*/
+
+	/*.bar-buttons,
+	.button-inner {
+	    color: #ff !important;
+	}*/
+}
+
+
+.user {
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+
+    .avatar{
+	    img {
+		    width: 125px;
+		    border-radius: 50%;
+		    height: 125px;
+		    background: #fff;
+    		padding: 2px;
+		}
+
+		span {
+		    font-size: 1.4em;
+		    color: #333;
+		    display: block;
+		    margin-top: 5px;
+		}
+	}
+
+	.login {
+	    padding: 10px 30px;
+	
+		button[color="secondary"] {
+		    background: #A48255;
+		}
+
+	}
+}
+
+.menu-inner .label {
+    color: #333;
+}
+.service {
+    text-align: center;
+	.service-name {
+        font-size: 14px;
+        padding: 5px;
+        height: 27px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+	}
+}
+.card-background-page .scroll-content {
+    padding: 0 !important;
+    background: #f4f4f7;
+}
+h3.section-title {
+    color: #a48255;
+    text-align: center;
+}
+button.back-button {
+    color: #222 !important;
+}
+.lang-bar {
+    background: #a48255;
+    padding: 0px 8px 4px;
+}
+.lang-bar > a.language-button {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    float: right;
+}
+.clear{
+	clear: both;
+}
+.text-right{
+	text-align: right;
+}
+.text-mid {
+    text-align: center;
+}
+img.logo-app {
+    max-height: 65px;
+    position: relative;
+    top: 2px;
+}
+ion-grid.grid-header.grid .col {
+    padding: 0 5px;
+}
+header.app-header .button {
+    background: #a48255;
+    border-radius: 0;
+    font-size: 12px;
+    margin-top: 8px;
+}
+.btn-cart > a, .btn-lang > a {
+    display: inline-block;
+    color: #222;
+    font-size: 1.8rem;
+    text-decoration: none;
+}
+.btn-lang > a {
+    position: relative;
+    top: -3px;
+}
+header.app-header {
+    background: #fff;
+    border-bottom: 1px solid rgba(164, 130, 85, 0.58);
+}
+footer {
+    background: #fff;
+    border-top: 1px solid #eee;
+}
+ul.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul.footer-menu li > a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    font-size: 15px;
+}
+ul.footer-menu > li {
+    margin-bottom: 5px;
+}
+footer h4 {
+    margin-bottom: 8px;
+}
+
+.label-bg-pink{
+	background-image: url('../assets/images/bg-label-pink.png')
+}
+.label-bg-blue{
+	background-image: url('../assets/images/bg-label-blue.png')
+}
+.label-bg-navy{
+	background-image: url('../assets/images/bg-label-navy.png')
+}
+.label-bg-yellow{
+	background-image: url('../assets/images/bg-label-yellow.png')
+}
+.label-bg-green{
+	background-image: url('../assets/images/bg-label-green.png')
+}
+.bg-label {
+    background-size: 100% 100%;
+    padding: 8px;
+    font-size: 1.6rem;
+    color: #222;
+    text-align: center;
+}
+
+ul.footer-social {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+ul.footer-social > li {
+    display: inline-block;
+}
+
+ul.footer-social > li
+ img {
+    max-width: 60px;
+}
+
+.btn-white .icon {
+    color: #fff;
+}
+/*.modal-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 !important;
+}*/
+form .list .item {
+    padding-left: 0;
+}
+form .list-ios > .item-block:first-child{
+    border-top: 0;
+}
+
+span.cart-count {
+    position: absolute;
+    top: -3px;
+    left: 11px;
+    color: #fff;
+    display: block;
+    width: 17px;
+    height: 16px;
+    /*background: rgba(0, 0, 0, 0.7);*/
+    background: #ff5722eb;
+    border-radius: 50%;
+    font-size: 10px;
+    padding: 3px 0;
+    line-height: 12px;
+}
+
+.card-page{
+    padding: 15px;
+}
+.card-page p {
+    margin-bottom: 10px;
+}
+
+.btn-lang .english {
+    top: 0px;
+}
+
+.is_rtl .alert-button-group {
+    direction: rtl;
+}
+
+ion-card-title.card-title.card-title-ios small {
+    color: #666;
+}
+
+.menu-inner{
+    ion-list-header{
+        margin-top: 10px;
+        .label{
+            color: #222;
+        }
+    }
+    .label{
+        > span {
+            display: inline-block;
+            position: relative;
+            top: -2px;
+        }
+    }
+}
+
+.service.card-celeb,
+.service.card-vendor {
+    .service-icon {
+        height: 116px;
+        display: flex;
+        padding: 5px;
+        img {
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+        }
+    }
+}
+
+.raf-tabs{
+    .tab-button {
+        color: #222222 !important;
+    }
+
+    .tab-button[aria-selected=true] .tab-button-icon{
+        color: #222222 !important;
+    }
+}
+
+img.app-logo {
+    height: 40px;
+    margin-top: 4px;
+}

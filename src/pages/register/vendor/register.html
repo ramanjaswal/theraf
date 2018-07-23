@@ -1,0 +1,93 @@
+<ion-header>
+    <ion-navbar>
+    	<button ion-button icon-only menuToggle clear color="dark">
+				<ion-icon name="menu"></ion-icon>
+		</button>
+        <ion-title color="dark">{{'Vendor Registration' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	<form (submit)="register()" [formGroup]="vendorForm">
+	  	<ion-list>
+
+		  <ion-item>
+		    <ion-label stacked>{{ 'Store Name' | translate}} <span class="astrix">*</span></ion-label>
+				<ion-input type="text" name="business_name" formControlName="business_name"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label stacked>{{ 'Name'  | translate }} <span class="astrix">*</span></ion-label>
+		    <ion-input type="text" name="fname" formControlName="fname"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label stacked>{{'Family' | translate}} <span class="astrix">*</span></ion-label>
+		    <ion-input type="text" name="lname" formControlName="lname"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label stacked>{{'Mobile Number' | translate}} <span class="astrix">*</span></ion-label>
+		    <ion-input type="text" name="mobile" formControlName="mobile"></ion-input>
+		  </ion-item>
+			
+			<ion-item>
+		    <ion-label stacked>{{'Email' | translate}} <span class="astrix">*</span></ion-label>
+		    <ion-input type="email" name="email" formControlName="email"></ion-input>
+			</ion-item>
+			
+			<ion-item>
+		    <ion-label stacked>{{'Instagram Account' | translate}}</ion-label>
+		    <ion-input type="text" name="instagram" formControlName="instagram"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label stacked>{{'Kind of products' | translate}} <span class="astrix">*</span></ion-label>
+				<ion-select name="product_categories" formControlName="product_categories" multiple="true">
+					<ion-option *ngFor="let category of categories" [value]="category.term_id">{{category.name | translate}}</ion-option>
+				</ion-select>
+			</ion-item>
+			
+			<ion-item>
+					<ion-label stacked>{{'City' | translate}} <span class="astrix">*</span></ion-label>
+					<ion-select name="city" formControlName="city">
+						<ion-option *ngFor="let location of locations" [value]="location.term_id">{{location.name | translate}}</ion-option>
+					</ion-select>
+			</ion-item>
+
+			<ion-item>
+					<ion-label stacked>{{'Full Address' | translate}} <span class="astrix">*</span></ion-label>
+					<ion-input type="text" name="address" formControlName="address" placeholder="{{ 'Street, Area, Neighborhood' | translate }}"></ion-input>
+			</ion-item>
+
+			<ion-item>
+					<ion-label stacked>{{'Bank Name' | translate}} <span class="astrix">*</span></ion-label>
+					<ion-input type="text" name="bank" formControlName="bank"></ion-input>
+			</ion-item>
+
+			<ion-item>
+					<ion-label stacked>{{'Account Number' | translate}} <span class="astrix">*</span></ion-label>
+					<ion-input type="text" name="account_number" formControlName="account_number"></ion-input>
+			</ion-item>
+
+			<ion-item>
+					<ion-label stacked>{{'Account Holder' | translate}} <span class="astrix">*</span></ion-label>
+					<ion-input type="text" name="account_holder" formControlName="account_holder"></ion-input>
+			</ion-item>
+
+			<ion-item>
+					<ion-label stacked>{{'ID Number' | translate}}</ion-label>
+					<ion-select name="id_type" formControlName="id_type">
+						<ion-option value="national_id" selected>National Identification Number</ion-option>
+						<ion-option value="commercial_id">Commercial Registration No</ion-option>
+					</ion-select>
+					<ion-input type="text" name="id_number" formControlName="id_number"></ion-input>
+			</ion-item>
+
+		</ion-list>
+		<p>By registering you agree to our <a href="javascript:;" (click)="openTerms()">terms and conditions</a>.</p>
+		<button ion-button color="dark" block>{{'REGISTER' | translate}}</button>
+	</form>
+
+</ion-content>

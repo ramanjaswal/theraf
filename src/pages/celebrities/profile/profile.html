@@ -1,0 +1,29 @@
+<ion-header>
+	<ion-navbar>
+        <button ion-button icon-only menuToggle clear color="dark">
+                <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title color="dark">{{'Login' | translate}}</ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="logOut()" color="dark">
+                Logout
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+    
+</ion-header>
+
+<ion-content padding>
+    <div class="celeb-profile">
+        <div class="celeb-photo">
+            <div>
+                <img [src]="celebrity.photo" />
+            </div>
+        </div>
+        <div class="continue">
+            <button round ion-button color="dark" (click)="doContinue()">
+                Continue as {{celebrity.name}} &nbsp;<ion-icon name="arrow-forward"></ion-icon>
+            </button>
+        </div>
+    </div>
+</ion-content>

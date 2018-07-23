@@ -1,0 +1,28 @@
+view-celebrity{
+	.celeb-photo {
+	    /*display: flex;
+	    height: 250px;*/
+	    img {
+		    /*object-fit: cover;
+		    object-position: center;*/
+		    width: 100%;
+		}
+	}
+	.no-item.item {
+	    text-align: center;
+	    color: #666;
+	}
+	.no-result-celeb {
+		padding: 10px;
+		text-align: center;
+		font-size: 1.6rem;
+		color: #666;
+	}
+	ion-grid.grid-services.grid-celeb-cats .service.card-ios {
+		margin: 0;
+		width: 100%;
+	}
+	.page-celebs-categories .scroll-content{
+		background: url(../assets/images/bg.jpg) !important;
+	}
+}

@@ -1,0 +1,32 @@
+page-services{
+
+	ion-grid.list-services.grid .card.card-ios,
+	ion-grid.list-services.grid .card.card-md {
+	    margin: 0;
+	    width: 100%;
+	}
+	ion-grid.list-services.grid .card-ios p,
+	ion-grid.list-services.grid .card-md p  {
+	    margin-bottom: 5px;
+	}
+	button[color="brown"]{
+		background: #A48255 !important;
+	}
+	ion-grid.list-services.grid .card-title {
+	    padding: 0;
+	    font-size: 1.4rem;
+        overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	}
+	#service-thumb {
+	    min-height: 120px;
+	    background-size: cover;
+    	background-position: center;
+	}
+
+	.segment-top {
+	    padding: 10px 10px 0;
+	}
+
+}

@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title color="dark">Payment</ion-title>
+    <ion-buttons end>
+      <!-- <button ion-button icon-only color="light">
+        <ion-icon name="cart"></ion-icon>
+        <span class="cart-count">{{cart_total}}</span>
+      </button> -->
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page" radio-group>
+
+	<ion-card class="card-payment">
+		<ion-card-content>
+			<ion-item>
+				<ion-radio value="1" checked name="payment_method" id="cc" (click)="selectPaymentMethod(1)"></ion-radio>
+				<ion-label>Credit Card</ion-label>
+			</ion-item>
+			<img [ngStyle]="{width: 'auto'}" src="https://www.paytabs.com/theme/payment_page/img/credit-cards.png" />
+		</ion-card-content>
+	</ion-card>
+
+	<!-- <ion-card class="card-payment" *ngIf="enableOffline">
+		<ion-card-content>
+			<ion-item>
+				<ion-radio value="2" name="payment_method" id="bank" (click)="selectPaymentMethod(2)"></ion-radio>
+				<ion-label>Bank Transfer</ion-label>
+			</ion-item>
+
+			<div class="bank-details">
+				<img src="assets/images/bank-logo.png" />
+				<div>
+					<span>Al-Rajhi Bank</span>
+					<p>Account Number <span class="act-number">SA6980000153608010066434</span></p>
+				</div>
+			</div>
+
+			<p><small class="note-light">After transferring, please send the transaction receipt you got to <a href="mailto:sales@eventos.com">sales@eventit.com</a> or via whatsapp <strong>00966555088195 </strong></small></p>
+
+		</ion-card-content>
+	</ion-card> -->
+
+	<!-- <ion-card class="card-payment" *ngIf="enableOffline && enableHomePayment">
+		<ion-card-content>
+			<ion-item>
+				<ion-radio value="3" name="payment_method" id="cod" (click)="selectPaymentMethod(3)"></ion-radio>
+				<ion-label>Home Payment</ion-label>
+			</ion-item>
+			<p>We will send someone from our company to collect the payment ( this will cost additional 30SR)</p>
+		</ion-card-content>
+	</ion-card> -->
+
+	<ion-card class="card-payment">
+		<ion-card-content>
+			<ion-item>
+				<ion-radio value="4" name="payment_method" id="cod" (click)="selectPaymentMethod(4)"></ion-radio>
+				<ion-label>Cash On Delivery</ion-label>
+			</ion-item>
+			<!-- <img [ngStyle]="{width: 'auto', height: '40px' }" src="assets/images/fastlo_logo.png" /> -->
+		</ion-card-content>
+	</ion-card>
+
+
+	<div class="btn-wrapper">
+		<button ion-button block color="dark" (click)="confirmOrder()">{{'CONFIRM AND PAY' | translate }}</button>
+	</div>
+
+</ion-content>

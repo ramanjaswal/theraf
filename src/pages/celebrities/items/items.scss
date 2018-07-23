@@ -1,0 +1,18 @@
+celebrity-items{
+	ion-card.card {
+	    margin: 0;
+	    width: 100%;
+	}
+	.service-img {
+	    height: 120px;
+	    display: flex;
+	    justify-content: center;
+	    img{
+		    object-fit: cover;
+	    	object-position: center;
+	    }
+	}
+	ion-card-content.card-content {
+	    padding: 5px 10px;
+	}
+}

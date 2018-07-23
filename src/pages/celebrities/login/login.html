@@ -1,0 +1,26 @@
+<ion-header>
+	<ion-navbar>
+        <button ion-button icon-only menuToggle clear color="dark">
+                <ion-icon name="menu"></ion-icon>
+        </button>
+    	<ion-title color="light">{{'Login' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <form>
+        <ion-list>
+
+            <ion-item>
+              <ion-label floating>Enter Passcode</ion-label>
+              <ion-input type="password" name="passcode" [(ngModel)]="passcode"></ion-input>
+            </ion-item>
+          
+        </ion-list>
+
+        <button ion-button color="dark" full (click)="doLogin()">Login</button>
+
+    </form>
+
+</ion-content>

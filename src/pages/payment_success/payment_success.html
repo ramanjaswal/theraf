@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <ion-title color="dark">Success</ion-title>
+    <ion-buttons end>
+      <button ion-button color="dark" (click)="goBack()">DONE</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+	<ion-card>
+
+		<ion-card-content>
+
+      <h3>Your order has been succesfully received.</h3>
+
+      <div [innerHTML]="data.message"></div>
+
+      <h3>Order Summary</h3>
+
+      <ion-list>
+
+        <ion-item *ngFor="let item of data.order.items" class="cart-item">
+          <div class="item-image">
+            <img [src]="item.image">
+          </div>
+          <div class="item-details">
+            <h2>{{ item.title }}</h2>
+            <!-- <p>By: {{item.author}}</p> -->
+            <p>Qty: {{item.quantity}}</p>
+            <p> {{item.date}} |  {{item.time}}</p>
+          </div>
+          <div class="item-action">
+            <span class="price">{{item.price}} SR</span>
+            <!-- <button ion-button outline color="danger" (click)="removeItem(item.key)">DELETE</button> -->
+          </div>
+        </ion-item>
+
+      </ion-list>
+
+      <table class="cart-details">
+        <tr>
+          <th>{{'Subtotal' | translate}}</th>
+          <td width="100px">{{data.order.sub_total}} SR</td>
+        </tr>
+        <tr>
+          <th>{{'Shipping' | translate}}</th>
+          <td width="100px">{{data.order.shipping}} SR</td>
+        </tr>
+        <tr *ngIf="data.order.discount > 0">
+          <th>{{'Discount' | translate}}</th>
+          <td>{{data.order.discount}} SR</td>
+        </tr>
+        <tr>
+          <th>{{'Total' | translate}}</th>
+          <td>{{data.order.total}} SR</td>
+        </tr>
+      </table>
+
+    </ion-card-content>
+
+	</ion-card>
+
+</ion-content>

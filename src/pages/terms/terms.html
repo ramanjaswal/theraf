@@ -1,0 +1,24 @@
+<ion-header>
+	<ion-navbar hideBackButton="true">
+		<ion-buttons *ngIf="showAgree">
+			<button ion-button (click)="doRegister()" color="dark">
+		        AGREE
+		    </button>
+		</ion-buttons>
+    	<ion-title color="dark">Terms and conditions</ion-title>
+    	<ion-buttons end>
+	      <button ion-button (click)="dismiss()" color="dark">
+	        <ion-icon name="md-close"></ion-icon>
+	      </button>
+	    </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content padding class="card-background-page">
+		
+		<ion-card *ngIf="!is_loading">
+			<ion-card-content>
+				<div [innerHtml]="page.post_content"></div>
+			</ion-card-content>
+		</ion-card>
+
+</ion-content>

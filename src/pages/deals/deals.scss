@@ -1,0 +1,28 @@
+page-deals{
+
+	.grid-deals.grid {
+
+		padding: 0;
+
+		.col {
+			padding: 0;
+		}
+
+		.deal-name {
+    		font-size: 2rem;
+    		text-align: center;
+    		padding: 10px 0;
+		}
+
+		.deal-icon img {
+			width: 100%;
+		}
+				
+
+	}
+
+	.deal-button {
+		padding: 0 10px 10px;
+	}
+
+}

@@ -1,0 +1,158 @@
+<ion-header>
+
+  <header class="app-header">
+		<ion-grid class="grid-header">
+			<ion-row>
+				<ion-col col-3 class="text-left">
+					<div class="btn-cart">
+						<a href="javascript:;" (click)="showCart()"><ion-icon name="cart"></ion-icon><span class="count">{{cart_total}}</span></a>
+					</div>
+					<button ion-button icon-only menuToggle clear color="light">
+				    	<ion-icon name="menu"></ion-icon>
+				    </button>
+				</ion-col>
+				<ion-col col-6 class="text-mid">
+					<img class="logo-app" src="assets/images/logo_new.png"/>
+					<!-- Eventos -->
+				</ion-col>
+				<ion-col col-3 class="text-right">
+					<div class="btn-lang">
+						<a href="javascript:;" *ngIf="language == 'en'" (click)="switchLanguage('ar')">عربي</a>
+						<a href="javascript:;" class="english" *ngIf="language == 'ar'" (click)="switchLanguage('en')">English</a>
+					</div>
+					<button ion-button icon-only clear color="light" (click)="toggleSearchBar()">
+				        <ion-icon name="search"></ion-icon>
+				    </button>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+  </header>
+
+  <!-- <ion-navbar>
+  	<ion-buttons start>
+  		<button ion-button small icon-only color="light" class="btn-cart">
+	        <ion-icon name="cart"></ion-icon>
+	    </button>
+	    <button ion-button menuToggle color="light">
+	      <ion-icon name="menu"></ion-icon>
+	    </button>
+    </ion-buttons>
+    <ion-title color="light">Eventos</ion-title>
+    <ion-buttons end>
+      <button ion-button small icon-only color="light" class="btn-lang">
+	    عربي
+	  </button>
+      <button ion-button icon-only color="light">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar> -->
+</ion-header>
+
+<ion-content padding class="card-background-page">
+	<div [hidden]="!showSearchBar" class="search-bar">
+		<ion-searchbar [(ngModel)]="searchTerm" ></ion-searchbar>
+		<button ion-button outline small (click)="textSearch()" color="light">{{'SEARCH' | translate}}</button>
+	</div>
+	<div class="banner">
+
+		<ion-slides id="slider">
+		  <ion-slide *ngFor="let slide of slides | async">
+		  	<h3 class="slide-title">{{slide.title}}</h3>
+		    <img [src]="slide.image">
+		  </ion-slide>
+		</ion-slides>
+
+		
+		<div class="search-form">
+			<div class="card-ios">
+				<h3>{{'BOOK YOUR EVENT' | translate}}</h3>
+				<ion-grid>
+					<ion-row>
+						<ion-col col-12>
+							<ion-list>
+  								<ion-item>
+									<ion-label>{{'Choose Your Area' | translate}}</ion-label>
+									<ion-select [(ngModel)]="selectedLocation">
+										<ion-option *ngFor="let location of locations | async" value="{{location.term_id}}">{{ location.name }}</ion-option>
+									</ion-select>
+								</ion-item>
+							</ion-list>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-12>
+							<button ion-button block color="dark" (click)="search()">{{'Search' | translate}}</button>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+		</div>
+	</div>
+
+	<h3 class="section-title">{{SERVICES | translate}}</h3>
+
+	<ion-grid class="grid-services">
+	  <ion-row>
+	    <ion-col col-6 col-sm-4 col-md-3 *ngFor="let category of categories | async">
+	      <div class="service card-ios" (click)="getServices(category)">
+	      	<div class="service-icon">
+	      		<img class="logo" [src]="category.image"/>
+	      	</div>
+	      	<div class="service-name" [ngClass]="{ rtl : language == 'ar' }">
+	      		{{category.name | translate}}
+	      	</div>
+	      </div>
+	    </ion-col>
+	  </ion-row>
+	</ion-grid>
+
+	<footer>
+		<ion-grid class="grid-footer">
+			<ion-row>
+				<ion-col col-6>
+					<h4 class="bg-label label-bg-pink">Event it</h4>
+					<ul class="footer-menu">
+						<li><a href="javascript:;" (click)="openPage('services')">{{'Services' | translate}}</a></li>
+						<!-- <li><a href="#">Deals</a></li> -->
+						<li><a href="javascript:;" (click)="openPage('about')">{{'About Us' | translate}}</a></li>
+						<li><a href="javascript:;" (click)="openPage('contact')">{{'Contact Us' | translate}}</a></li>
+					</ul>
+				</ion-col>
+				<ion-col col-6>
+					<h4 class="bg-label label-bg-blue">{{'Customer' | translate}}</h4>
+					<ul class="footer-menu">
+						<li><a href="javascript:;" (click)="openPage('login')">{{'Login' | translate}}</a></li>
+						<li><a href="javascript:;" (click)="openPage('register')">{{'Register' | translate}}</a></li>
+					</ul>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col col-6>
+					<h4 class="bg-label label-bg-navy">{{'Vendor' | translate}}</h4>
+					<ul class="footer-menu">
+						<li><a href="javascript:;" (click)="systemLink('http://eventit.co/en/login/')">{{'Login' | translate}}</a></li>
+						<li><a href="javascript:;" (click)="systemLink('http://eventit.co/en/register-vendor/')">{{'Register' | translate}}</a></li>
+					</ul>
+				</ion-col>
+				<ion-col col-6>
+					<h4 class="bg-label label-bg-yellow">{{'Support' | translate}}</h4>
+					<ul class="footer-menu">
+						<li><a href="javascript:;" (click)="openPage('terms')">{{'Terms and Conditions' | translate}}</a></li>
+						<li><a href="javascript:;" (click)="openPage('privacy')">{{'Privacy Policy' | translate}}</a></li>
+					</ul>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col col-12>
+					<h4 class="bg-label label-bg-green">{{'Stay Connected' | translate}}</h4>
+					<ul class="footer-social">
+						<li><a href="javascript:;" (click)="systemLink('http://instagram.com/eventit.co')"><img src="assets/images/insta.png" /></a></li>
+						<li><a href="tel:966555088195"><img src="assets/images/whatsapp.png" /></a></li>
+					</ul>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</footer>
+
+</ion-content>

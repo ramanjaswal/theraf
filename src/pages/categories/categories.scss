@@ -1,0 +1,18 @@
+all-categories{
+	.grid-services.grid {
+		.col {
+	    	.service.card-ios {
+			    margin: 0;
+			    width: 100%;
+			    .service-name{
+			    	font-size: 16px;
+			    }
+			}
+		}
+	}
+
+	.scroll-content {
+		background-image: url('../assets/images/bg.jpg') !important;
+		background-size: cover !important;
+   }
+}

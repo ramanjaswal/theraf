@@ -1,0 +1,21 @@
+list-celebrities{
+	
+	.service.card-ios {
+	    margin: 0;
+	    width: 100%;
+	}
+	.service-icon {
+	    padding: 5px;
+	    display: flex;
+        justify-content: center;
+	    max-height: 135px;
+	    img.logo {
+		    object-fit: cover;
+		    object-position: center;
+		}
+	}
+	.scroll-content {
+		background-image: url('../assets/images/bg.jpg') !important;
+		background-size: cover !important;
+   }
+}

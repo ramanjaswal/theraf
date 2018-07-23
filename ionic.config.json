@@ -1,0 +1,8 @@
+{
+  "name": "EventIt",
+  "app_id": "d9ddf73e",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

@@ -1,0 +1,34 @@
+page-contact{
+	.btn-cart {
+		span.count {
+            display: inline-block;
+			font-size: 13px;
+			position: relative;
+			top: -4px;
+			left: 3px;
+			text-align: center;
+			line-height: 18px;
+		}
+	}
+	.card-header-ios {
+	    text-align: center;
+	}
+
+	.search-bar{
+		background: #a48255;
+	}
+
+	.search-bar > button {
+        position: absolute;
+	    color: #fff;
+	    border-color: #fff;
+	    top: 3px;
+	    right: 10px;
+	    height: 30px;
+	}
+
+	.searchbar-ios {
+	    background: #a48255;
+	    width: calc(100% - 90px);
+	}
+}

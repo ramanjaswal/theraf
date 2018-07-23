@@ -1,0 +1,37 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.eventos.eventit"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.eventos.eventit"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.eventos.eventit"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.eventos.eventit"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.eventos.eventit"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.eventos.eventit"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.eventos.eventit"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "85075801930",
+            "PACKAGE_NAME": "com.eventos.eventit"
+        }
+    },
+    "dependent_plugins": {}
+}

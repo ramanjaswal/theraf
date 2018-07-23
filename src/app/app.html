@@ -1,0 +1,82 @@
+<ion-menu [content]="content" [swipeEnabled]="false">
+
+  <ion-header>
+    <ion-navbar>
+    	<ion-title color="light"><img [src]="'assets/images/logo-raf.png'" class="app-logo" /></ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content>
+
+    <!-- <div class="user">
+      <div class="avatar" *ngIf="user !== null">
+        <img src="assets/images/avatar.png" />
+        <span >{{user.display_name}}</span>
+        <button class="btn-logout" ion-button color="danger" (click)="logOut()">{{'Logout' | translate}}</button>
+      </div>
+      <div class="login" *ngIf="user == null">
+        <button ion-button block color="secondary" (click)="openLogin()">{{'Login' | translate}}</button>
+        <button ion-button block color="dark" (click)="openRegister()">{{'Register' | translate}}</button>
+      </div>
+    </div> -->
+
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon name="{{p.icon}}"></ion-icon> <span>{{p.title | translate}}</span>
+      </button>
+
+      <ion-list-header *ngIf="user == null">
+        {{'CUSTOMERS' | translate}}
+      </ion-list-header>
+      <button menuClose ion-item (click)="openLogin()" *ngIf="user == null">
+        <ion-icon name="md-log-in"></ion-icon> <span>{{'Login' | translate}}</span>
+      </button>
+      <button menuClose ion-item (click)="openRegister()" *ngIf="user == null">
+        <ion-icon name="md-person-add"></ion-icon> {{'Register' | translate}}
+      </button>
+      <ion-list-header *ngIf="user == null">
+        {{'VENDORS' | translate}}
+      </ion-list-header>
+      <button menuClose ion-item (click)="openVendorLogin()" *ngIf="user == null">
+        <ion-icon name="md-log-in"></ion-icon> <span>{{'Login' | translate}}</span>
+      </button>
+      <button menuClose ion-item (click)="openVendorRegistration()" *ngIf="user == null">
+        <ion-icon name="md-person-add"></ion-icon> {{'Register' | translate}}
+      </button>
+
+      <ion-list-header *ngIf="user == null">
+        {{'CELEBRITIES' | translate}}
+      </ion-list-header>
+      <button menuClose ion-item (click)="pushPage('celeb_login')" *ngIf="user == null">
+        <ion-icon name="md-log-in"></ion-icon> <span>{{'Login' | translate}}</span>
+      </button>
+
+      <ion-list-header>
+        {{'LEGAL' | translate}}
+      </ion-list-header>
+      <button menuClose ion-item (click)="openPage('terms')">
+        <span>{{'Terms and Conditions' | translate}}</span>
+      </button>
+      <button menuClose ion-item (click)="openPage('terms')">
+        <span>{{'Privacy Policy' | translate}}</span>
+      </button>
+
+    </ion-list>
+  </ion-content>
+
+  <!-- <ion-footer>
+    <ion-toolbar>
+      <ion-segment color="dark" [(ngModel)]="language">
+        <ion-segment-button value="arabic">
+          Arabic
+        </ion-segment-button>
+        <ion-segment-button value="english">
+          English
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+  </ion-footer> -->
+
+</ion-menu>
+
+<ion-nav [ngClass]="{ 'is_rtl' : language == 'ar' }" [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,93 @@
+page-landing{
+	.content {
+
+		.fixed-content{
+			background-image: url('../assets/images/bg.jpg');
+		    background-size: cover;
+		}
+
+		.logo {
+		    text-align: center;
+		        margin-top: 32%;
+		}
+
+		.landing-btns {
+		    margin-top: 45%;
+		    /*position: absolute;
+	    	bottom: 12%;
+		    width: calc(100% - 32px);
+		    left: 0;
+		    box-sizing: border-box;
+		    margin-left: 16px;
+		    margin-right: 16px;*/
+
+		    p.terms-conditoins {
+			    text-align: center;
+
+			    a{
+			    	color: #fff;
+			    }
+			}
+
+		}
+
+	}
+}
+
+/* iPhone 6 */
+@media screen and (min-width: 375px){ 
+	page-landing {
+		.content{
+			.landing-btns {
+			    margin-top: 55%;
+			}
+		}
+	}
+}
+/* iPhone 6 Plus */
+@media screen and (min-width: 414px){
+	page-landing {
+		.content{
+			.landing-btns {
+			    margin-top: 60%;
+			}
+		}
+	}
+}
+/* iPad */
+@media screen and (min-width: 768px){
+	page-landing {
+		.content{
+			.logo{
+				margin-top: 25%;
+				img{
+					width: 250px;
+				}
+			}
+			.landing-btns {
+			    margin-top: 42%;
+			    max-width: 600px;
+			    margin-left: auto;
+			    margin-right: auto;
+			}
+		}
+	}
+}
+
+/* iPad Pro */
+@media screen and (min-width: 1024px){
+
+	page-landing {
+		.content{
+			.logo{
+				img{
+					width: 300px;
+				}
+			}
+			.landing-btns {
+			    max-width: 768px;
+			}
+		}
+	}
+
+}

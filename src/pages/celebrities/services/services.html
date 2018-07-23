@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title color="dark">{{'Select Services' | translate}}</ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="saveItems()" color="dark">
+                Save
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+        <ion-list>
+            <ion-item *ngIf="services.length == 0">No product to show</ion-item>
+            <ion-item *ngFor="let service of services | async" (click)="selectItem(service)">
+                <ion-thumbnail item-start>
+                    <img [src]="service.image">
+                </ion-thumbnail>
+                <h2>{{service.title | translate}}</h2>
+                <p>by {{service.author}}</p>
+                <p class="service-price">{{service.price}} SR {{service.price_factor}}</p>
+                <ion-icon name="checkmark-circle" item-end *ngIf="isSelected(service)"></ion-icon>
+                <ion-icon item-end name="radio-button-off" *ngIf="!isSelected(service)"></ion-icon>
+            </ion-item>
+        </ion-list>
+</ion-content>

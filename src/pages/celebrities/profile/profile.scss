@@ -1,0 +1,27 @@
+celebrities-profile{
+
+    .celeb-profile {
+        height: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .celeb-photo{
+            > div{
+                max-width: 220px;
+                margin: 0 auto;
+    
+                img{
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        .continue {
+            margin-top: 50px;
+        }
+
+    }
+
+}

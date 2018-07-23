@@ -1,0 +1,12 @@
+vendor-register{
+
+    .list .item .item-inner {
+        padding-right: 0;
+    }
+	ion-input.ng-dirty.ng-invalid {
+        border-bottom: 0.5px solid #ff0000;
+    }
+    span.astrix {
+        color: red;
+    }
+}

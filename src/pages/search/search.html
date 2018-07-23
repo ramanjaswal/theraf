@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title color="dark">Search</ion-title>
+    <!-- <ion-buttons end>
+      <button ion-button icon-only color="light" (click)="showCart()">
+        <ion-icon name="cart"></ion-icon>
+        <span class="cart-count">{{cart_total}}</span>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="card-background-page">
+
+	<ion-grid class="grid-services">
+	  <ion-row>
+	    <ion-col col-6 col-sm-4 col-md-3 *ngFor="let category of categories | async">
+	      <div class="service card-ios" (click)="getServices(category)">
+	      	<div class="service-icon">
+	      		<img class="logo" [src]="category.image"/>
+	      	</div>
+	      	<div class="service-name" [ngClass]="{ rtl : language == 'ar' }">
+	      		{{category.name | translate}}
+	      	</div>
+	      </div>
+	    </ion-col>
+	  </ion-row>
+	</ion-grid>
+
+</ion-content>

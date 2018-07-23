@@ -1,0 +1,131 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title color="dark">Delivery Address</ion-title>
+    <ion-buttons end>
+      <!-- <button ion-button icon-only color="light">
+        <ion-icon name="cart"></ion-icon>
+        <span class="cart-count">{{cart_total}}</span>
+      </button> -->
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+	<ion-card *ngIf="!is_logged_in">
+		<ion-card-content>
+			<h3 class="title-card">RETURNING CUSTOMER</h3>
+			<p class="note-light">If you are a registered user, please enter your email and password here and enjoy a faster checkout.</p>
+
+			<ion-list class="form-address form-login">
+				<ion-item>
+				    <ion-label stacked>{{'Username' | translate}}</ion-label>
+				    <ion-input type="text" name="username" [(ngModel)]="login.username"></ion-input>
+				  </ion-item>
+
+				  <ion-item>
+				    <ion-label stacked>{{'Password' | translate}}</ion-label>
+				    <ion-input type="password" name="password" [(ngModel)]="login.password"></ion-input>
+				  </ion-item>
+			</ion-list>
+
+			<div class="btn--wrapper">
+				<button ion-button block color="dark" (click)="doLogin()">{{'LOGIN' | translate}}</button>
+			</div>
+
+		</ion-card-content>
+	</ion-card>
+
+	<ion-card>
+		<ion-card-content>
+
+			<ion-list class="form-address">
+
+				<ion-list-header>
+				    CONTACT INFO
+				</ion-list-header>
+
+				<span class="register-note" *ngIf="!is_logged_in">By Filling up this info you are creating a new account with us</span>
+
+				<ion-item>
+				    <ion-label stacked>{{'First Name' | translate}} <span class="txt-required">*</span></ion-label>
+				    <ion-input type="text" name="first_name" [(ngModel)]="address.first_name" required></ion-input>
+				</ion-item>
+
+				<ion-item>
+				    <ion-label stacked>{{'Last Name' | translate}} <span class="txt-required">*</span></ion-label>
+				    <ion-input type="text" name="last_name" [(ngModel)]="address.last_name" required></ion-input>
+				</ion-item>
+
+				<ion-item>
+				    <ion-label stacked>{{'Email' | translate}} <span class="txt-required">*</span></ion-label>
+				    <ion-input type="text" name="user_email" [(ngModel)]="address.user_email" [disabled]="is_logged_in" required></ion-input>
+				</ion-item>
+
+				<ion-item *ngIf="!is_logged_in">
+				    <ion-label stacked>{{'Password' | translate}} <span class="txt-required">*</span></ion-label>
+				    <ion-input type="password" name="password" [(ngModel)]="address.password" required></ion-input>
+			  	</ion-item>
+
+				<ion-item *ngIf="!is_logged_in">
+				    <ion-label stacked>{{'Confirm Password' | translate}} <span class="txt-required">*</span></ion-label>
+				    <ion-input type="password" name="cpassword" [(ngModel)]="address.cpassword" required></ion-input>
+			  	</ion-item>
+
+				<ion-item>
+				    <ion-label stacked>{{"Mobile" | translate}} <span class="txt-required">*</span></ion-label>
+				    <ion-label class="mobile-code">+966</ion-label>
+				    <ion-input class="mobile-no" type="text" name="mobile" [(ngModel)]="address.mobile" required></ion-input>
+				</ion-item>
+
+				<ion-list-header class="header-margin">
+				    DELIVERY INFO
+				</ion-list-header>
+
+				<ion-item>
+				    <ion-label stacked>{{'Address' | translate}} <span class="txt-required">*</span></ion-label>
+				    <ion-textarea name="address" [(ngModel)]="address.address" required></ion-textarea>
+				</ion-item>
+
+				<ion-item>
+				    <ion-label stacked>{{'Country' | translate}} <span class="txt-required">*</span></ion-label>
+				    <ion-input type="text" value="Soudi Arabia" disabled></ion-input>
+				</ion-item>
+
+				<!-- <ion-item>
+					<ion-label stacked>{{'City' | translate}} <span class="txt-required">*</span></ion-label>
+					<ion-select [(ngModel)]="address.city">
+					    <ion-option *ngFor="let location of allLocations" value="location">{{location}}</ion-option>
+				  	</ion-select>
+				</ion-item> -->
+
+				<ion-item>
+				    <ion-label stacked>{{'City' | translate}} <span class="txt-required">*</span></ion-label>
+				    <ion-input disabled type="text" name="city" [(ngModel)]="address.city" required></ion-input>
+				</ion-item>
+
+				<ion-item>
+				    <ion-label stacked>{{'Area' | translate}} <span class="txt-required">*</span></ion-label>
+				    <ion-input type="text" name="province" [(ngModel)]="address.province" required></ion-input>
+				</ion-item>
+				
+				<ion-item>
+				    <ion-label stacked>{{'Postal Code' | translate}}</ion-label>
+				    <ion-input type="text" name="postal_code" [(ngModel)]="address.postal_code"></ion-input>
+				</ion-item>
+
+				<ion-item>
+				    <ion-label stacked>{{'Additional Comments' | translate}} <span class="txt-required">*</span></ion-label>
+				    <ion-textarea name="comments" [(ngModel)]="address.comments" required></ion-textarea>
+				</ion-item>
+
+			</ion-list>
+
+		</ion-card-content>
+	</ion-card>
+
+	<div class="btn-wrapper">
+		<button ion-button block color="dark" (click)="saveAddress()">{{'CONTINUE' | translate}}</button>
+	</div>
+
+</ion-content>
