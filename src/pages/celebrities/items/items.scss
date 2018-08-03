@@ -15,4 +15,14 @@ celebrity-items{
 	ion-card-content.card-content {
 	    padding: 5px 10px;
 	}
+
+	.segment-top {
+		padding: 10px 10px 0;
+	}
+
+	.vendor-logo{
+		min-height: 120px;
+		background-size: cover;
+		background-position: center;
+	}
 }

@@ -29,6 +29,8 @@ import {TranslateService} from 'ng2-translate';
 import { AlertController } from 'ionic-angular';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import { Orders } from '../pages/orders/orders';
+import { FAQs } from '../pages/faqs/faqs';
 
 declare const cordova: any;
 
@@ -202,6 +204,18 @@ export class MyApp {
 
   }
 
+  showOrders(){
+    this.nav.setRoot(Orders)
+  }
+
+  openWpPage(id){
+    this.nav.setRoot(WpPage, {id: id})
+  }
+
+  openFaq(){
+    this.nav.setRoot(FAQs)
+  }
+
   pushPage(page){
 
     switch(page){
@@ -220,7 +234,6 @@ export class MyApp {
       }
       break;
     }
-
     
   }
 }

@@ -90,7 +90,7 @@ export class WPService {
 
 	}
 
-	getServicesByCategory(id,area = ''): Observable<any[]>{
+	getServicesByCategory(id, area = ''): Observable<any[]>{
 	
 		let params = id;
 		if(area !== ''){
@@ -98,6 +98,17 @@ export class WPService {
 		}
 
 		return this.http.get(this.API_URL + '/category/'+params)
+               .map(response => response.json() )
+               .catch(error => {
+			        //console.log(error);
+			        return Observable.of<any[]>([]);
+			    });
+	}
+
+	getServicesByCategoryForCelebrities(id): Observable<any[]>{
+
+
+		return this.http.get(this.API_URL + '/category/'+id+'?celeb=1')
                .map(response => response.json() )
                .catch(error => {
 			        //console.log(error);
@@ -314,6 +325,29 @@ export class WPService {
 		    });
 	}
 
+	getVendorsByCategory(cat_id): Observable<any>{
+		return this.http.get( this.API_URL + '/vendors/cat/'+ cat_id )
+			.map( response => response.json() )
+			.catch( error => {
+				return Observable.of<any>({
+					status: false,
+					message: 'Error while serving request'
+				})
+			} )
+	}
+
+	getCategoriesByVendor(vendor_id): Observable<any>{
+
+		return this.http.get( this.API_URL + '/categories/vendor/'+ vendor_id )
+			.map( response => response.json() )
+			.catch( error => {
+				return Observable.of<any>({
+					status: false,
+					message: 'Error while serving request'
+				})
+			} )
+	}
+
 	getByAuthor(id, cat = 0, area = 0): Observable<any>{
 		return this.http.get(this.API_URL + '/author/' + id + '?cat=' + cat + '&area=' + area )
            .map(response => response.json() )
@@ -474,6 +508,64 @@ export class WPService {
 				} )
 			}) 
 	}
+
+	getCelebrityServicesByVendor(celebrity_id, category_id, vendor_id): Observable<any>{
+		return this.http.get( this.API_URL + '/celebrity/items/?category_id='+category_id + '&celebrity_id=' + celebrity_id + '&vendor_id=' + vendor_id )
+			.map( response => response.json() )
+			.catch( error =>  {
+				return Observable.of<any>( {
+					status: false,
+					message: 'Error while fetching results'
+				} )
+			}) 
+	}
+
+	getCelebVendors(celebrity_id, category_id): Observable<any>{
+		return this.http.get( this.API_URL + '/celebrity/vendors/?category_id='+category_id + '&celebrity_id=' + celebrity_id )
+			.map( response => response.json() )
+			.catch( error =>  {
+				return Observable.of<any>( {
+					status: false,
+					message: 'Error while fetching results'
+				} )
+			}) 
+	}
+
+	getMyOrders(): Observable<any>{
+		return this.http.get(this.API_URL + '/my-orders/', this.getHeader() )
+           .map(response => response.json() )
+           .catch(error => {
+		        //console.log(error);
+		        return Observable.of<any>({
+		        	status: false,
+		        	message: 'Error while fetching orders'
+		        });
+		    });
+	}
+
+	deleteMyOrder(order_id):  Observable<any>{
+		return this.http.get(this.API_URL + '/orders/cancel/' + order_id, this.getHeader() )
+           .map(response => response.json() )
+           .catch(error => {
+		        //console.log(error);
+		        return Observable.of<any>({
+		        	status: false,
+		        	message: 'Error while serving your request'
+		        });
+		    });
+	}
+
+	getFAQs(): Observable<any>{
+		return this.http.get(this.API_URL + '/faqs/')
+           .map(response => response.json() )
+           .catch(error => {
+		        //console.log(error);
+		        return Observable.of<any>({
+		        	status: false,
+		        	message: 'Error while serving your request'
+		        });
+		    });
+	} 
 
 	//Error Handler
 	private handleError(error: any): Promise<any> {

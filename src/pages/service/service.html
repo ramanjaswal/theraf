@@ -89,10 +89,15 @@
         </ul>
       </ion-item>
 
-      <ion-item>
-        <ion-label>{{'Quantity' | translate}}</ion-label>
-        <ion-input type="number" placeholder="Enter Quantity" name="quantity" [(ngModel)]="item.quantity"></ion-input>
+      <ion-item class="quantity-box">
+        <label>{{'Quantity' | translate}}</label>
+        <div>
+          <button (click)="changeQty('dec')" [disabled]="item.quantity == 1">-</button>
+          <input type="number" placeholder="Enter Quantity" name="quantity" [(ngModel)]="item.quantity" />
+          <button (click)="changeQty('inc')">+</button>
+        </div>
       </ion-item>
+
       <ion-item *ngIf="service.is_hourly">
         <ion-label>{{'Number of hours' | translate}}</ion-label>
         <ion-select name="hours" [(ngModel)]="item.hours">

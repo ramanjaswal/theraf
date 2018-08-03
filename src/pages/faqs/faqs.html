@@ -1,0 +1,28 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button icon-only menuToggle clear color="dark">
+				<ion-icon name="menu"></ion-icon>
+		</button>
+    	<ion-title color="dark">{{'FAQs' | translate}}</ion-title>
+    	<!-- <ion-buttons end>
+	      <button ion-button (click)="dismiss()" class="btn-white">
+	        <ion-icon name="md-close"></ion-icon>
+	      </button>
+	    </ion-buttons> -->
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="card-background-page">
+	<ion-card>
+		<ion-list class="list-faqs" *ngFor="let faq of faqs; let i = index" [ngClass]="{ 'active' :  (active_index == i) }">
+			<button ion-item (click)="activateTab(i)">
+		    	{{faq.question}}
+		    </button>
+		    <div class="faq-answer">{{faq.answer}}</div>
+	  		<!-- <ion-item *ngFor="let faq of faqs">
+	  			<h2></h2>
+	    		
+		  	</ion-item> -->
+	  	</ion-list>
+  	</ion-card>
+</ion-content>	

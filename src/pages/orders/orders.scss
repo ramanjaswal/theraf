@@ -1,0 +1,83 @@
+page-orders{
+    ul.order-summary {
+        list-style: none;
+        padding: 0;
+        width: 100%;
+        display: flex;
+    }
+    
+    ul.order-summary > li {
+        width: 33.33%;
+        display: block;
+        text-align: center;
+        background: #eee;
+        padding: 5px 0;
+        border-right: 1px solid #fff;
+        position: relative;
+    }
+
+    ul.order-summary > li:last-child {
+        border: 0;
+    }
+    ul.order-summary > li:nth-child(2):before {
+        content: "+";
+        position: absolute;
+        left: -10px;
+        background: #fff;
+        width: 20px;
+        border-radius: 50%;
+        top: 19px;
+    }
+    ul.order-summary > li:last-child:before {
+        position: absolute;
+        content: "=";
+        width: 19px;
+        background: #fff;
+        border-radius: 50%;
+        left: -10px;
+        top: 19px;
+    }
+    
+    ul.order-summary:after {
+        clear: both;
+        content: "";
+    }
+
+    ul.order-summary > li > span {
+        display: block;
+        color: #999;
+    }
+    
+    ul.order-summary > li > strong {
+        font-size: 2rem;
+    }
+
+    div.order-summary > ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    div.order-summary > ul > li {
+        display: inline-block;
+        padding: 0 10px;
+        border-right: 1px solid #222222;
+    }
+    
+    div.order-summary > ul > li:first-child {
+        padding-left: 0;
+    }
+    
+    div.order-summary > ul > li:last-child {
+        border: 0;
+        padding-right: 0;
+    }
+    .order-shipping-info {
+        display: inline-block;
+        background: #d9edef;
+        font-size: 1.2em;
+        background-color: #f0f5ff;
+        border: 1px solid #e6e9ee;
+        border-radius: 2px;
+        padding: 5px;
+    }
+}

@@ -365,4 +365,16 @@ export class Service {
   toFloat(num){
     return parseFloat(num);
   }
+
+  changeQty(dir){
+
+    if(dir == 'inc'){
+      this.item.quantity += 1
+    }
+    if(dir == 'dec'){
+      this.item.quantity -= 1
+    }
+
+  }
+
 }

@@ -280,8 +280,13 @@ ion-card-title.card-title.card-title-ios small {
 .menu-inner{
     ion-list-header{
         margin-top: 10px;
+        border-bottom: 0;
         .label{
             color: #222;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 0;
+            border-bottom: 1px solid;
         }
     }
     .label{

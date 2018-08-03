@@ -31,4 +31,35 @@ page-contact{
 	    background: #a48255;
 	    width: calc(100% - 90px);
 	}
+	.contact-whatsapp {
+		text-align: center;
+	}
+
+	.contact-whatsapp img.app-logo {
+		width: auto;
+		height: 65px;
+	}
+
+	.contact-whatsapp > a {
+		display: inline-block;
+	}
+
+	.divider-1 {
+		background: #ccc;
+		height: 2px;
+		position: relative;
+	    margin: 15px 0;
+	}
+	
+	.divider-1  > span {
+		position: absolute;
+		width: 35px;
+		height: 30px;
+		top: -8px;
+		z-index: 9;
+		left: 50%;
+		transform: translateX(-50%);
+		background: #fff;
+		text-align: center;
+	}
 }

@@ -5,7 +5,7 @@ import { AuthService } from '../../providers/auth.service';
 import { NotificationHelper } from '../../providers/notification.helper';
 import { WPService } from '../../providers/wp.service';
 
-import { Home } from '../../pages/home/home';
+import { TabsPage } from '../../pages/tabs/tabs';
 
 @Component({
   selector: 'page-login',
@@ -39,7 +39,7 @@ export class Login {
 
 				this.events.publish('user:login', true);
 
-				this.navCtrl.setRoot(Home,{},{
+				this.navCtrl.setRoot(TabsPage,{},{
 					animate: true,
 					animation: 'md-transition',
 					direction: 'forward'

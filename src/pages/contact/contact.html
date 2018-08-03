@@ -57,7 +57,14 @@
         {{'Contact Us' | translate}}
       </ion-card-header> -->
 
-      <p>Contact us through whatsapp <strong>00966555088195</strong> or email :</p>
+      <div class="contact-whatsapp">
+        <a class="whatsapp-link" href="whatsapp://send?phone=00966555088195">
+          <img [src]="'assets/images/whatsapp.png'" class="app-logo" />
+        </a>
+      </div>
+      <div class="divider-1"><span>OR</span></div>
+
+      <!-- <p>Contact us through whatsapp <strong>00966555088195</strong> or email :</p> -->
 	
         <form>
             <ion-list>

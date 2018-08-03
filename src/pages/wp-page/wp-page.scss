@@ -28,4 +28,14 @@ page-wp-page{
 			line-height: 18px;
 		}
 	}
+	.privacy-policy > h5,
+	.terms-conditions > h5 {
+	    font-size: 2rem;
+	    margin-top: 10px;
+	    color: #222;
+	}
+	.privacy-policy,
+	.terms-conditions {
+	    color: #666;
+	}
 }

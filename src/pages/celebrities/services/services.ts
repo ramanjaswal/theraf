@@ -11,10 +11,12 @@ import { NotificationHelper } from '../../../providers/notification.helper';
 })
 export class Services {
 
-    services: any;
+    services: any = [];
     selectedItems: any = [];
     category: any;
     //savedServices: any = [];
+
+    count: any;
 
     constructor(
         private navParams: NavParams,
@@ -23,7 +25,9 @@ export class Services {
         private navCtrl: NavController
     ){
         this.category = navParams.get('category');
-        this.services = this.wpService.getServicesByCategory( this.category.term_id, '0' );
+        this.wpService.getServicesByCategoryForCelebrities( this.category.term_id ).subscribe( services => {
+            this.services = services
+        } )
         this.getSavedServices();
     }
 
@@ -66,7 +70,8 @@ export class Services {
                 this.notification.showToast(response.message);
             }
 
-            debugger
+            this.navCtrl.pop();
+            
         });
         
     }

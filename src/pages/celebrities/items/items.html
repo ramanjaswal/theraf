@@ -6,7 +6,18 @@
 
 <ion-content padding class="card-background-page">
 
-	<ion-grid class="list-services">
+	<div class="segment-top">
+			<ion-segment color="dark" [(ngModel)]="browse_by">
+				<ion-segment-button  value="product" (ionSelect)="browseByProduct()">
+					{{"Browse By Product" | translate}}
+				</ion-segment-button>
+				<ion-segment-button value="vendor" (ionSelect)="browseByVendor()">
+					{{"Browse By Vendor" | translate}}
+				</ion-segment-button>
+			</ion-segment>
+		</div>
+
+	<ion-grid class="list-services" *ngIf="active_view == 'products'">
 	    <ion-row>
 	      <ion-col col-12 *ngIf="services && services.length == 0"><p class="center no-result">No Service Found</p></ion-col>
 	      <ion-col col-6 col-sm-4 *ngFor="let service of services">
@@ -29,6 +40,24 @@
 	        </ion-card>
 	      </ion-col>
 	    </ion-row>
-  	</ion-grid>
+		</ion-grid>
+		
+		<ion-grid class="list-services" *ngIf="active_view == 'vendors'">
+				<ion-row>
+					<ion-col col-12 *ngIf="vendors && vendors.length == 0"><p class="center no-result">No Vendor Found</p></ion-col>
+					<ion-col col-6 col-sm-4 *ngFor="let vendor of vendors">
+						<ion-card>
+							<!-- <img src="{{ service.image }}"/> -->
+							<div id="service-thumb" class="vendor-logo" [ngStyle]="{'background-image': 'url(' + vendor.avatar + ')'}"></div>
+							<ion-card-content>
+								<ion-card-title>
+									{{ vendor.name }}
+								</ion-card-title>
+								<button ion-button block color="dark" (click)="byVendor(vendor)">{{'View' | translate}}</button>
+							</ion-card-content>
+						</ion-card>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
 
 </ion-content>

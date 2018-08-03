@@ -11,8 +11,8 @@
 
 <ion-content padding>
         <ion-list>
-            <ion-item *ngIf="services.length == 0">No product to show</ion-item>
-            <ion-item *ngFor="let service of services | async" (click)="selectItem(service)">
+            <ion-item *ngIf="services.length == 0" class="no-result">No product to show</ion-item>
+            <ion-item *ngFor="let service of services" (click)="selectItem(service)">
                 <ion-thumbnail item-start>
                     <img [src]="service.image">
                 </ion-thumbnail>

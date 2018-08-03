@@ -1,0 +1,26 @@
+page-faqs{
+	.faq-answer {
+	    color: #666;
+	    white-space: initial;
+	}
+	.list-faqs > .item h2 {
+	    font-size: 2rem;
+	}
+
+	.faq-answer {
+	    
+	    font-size: 15px;
+	}
+
+	.list.active .faq-answer {
+	    height: auto;
+	    padding: 0 16px 16px;
+	}
+
+	.list .faq-answer {
+	    height: 0;
+	    overflow: hidden;
+	    padding: 0;
+	}
+
+}

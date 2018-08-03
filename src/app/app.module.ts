@@ -40,11 +40,14 @@ import { View as ViewCelebrity } from '../pages/celebrities/view/view';
 import { Items as CelebrityItems } from '../pages/celebrities/items/items';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import { Orders } from '../pages/orders/orders';
+import { FAQs } from '../pages/faqs/faqs';
 
 import { Categories as AllCategories } from '../pages/categories/categories';
 import { List as AllVendors } from '../pages/vendors/list/list';
 
 import { Register as VendorRegister } from '../pages/register/vendor/register';
+
 
 export function createTranslateLoader(http: Http) {
     return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -81,7 +84,9 @@ export function createTranslateLoader(http: Http) {
     ViewCelebrity,
     CelebrityItems,
     VendorRegister,
-    TabsPage
+    TabsPage,
+    Orders,
+    FAQs
   ],
   imports: [
     BrowserModule,
@@ -132,7 +137,9 @@ export function createTranslateLoader(http: Http) {
     ViewCelebrity,
     CelebrityItems,
     VendorRegister,
-    TabsPage
+    TabsPage,
+    Orders,
+    FAQs
   ],
   providers: [
     StatusBar,

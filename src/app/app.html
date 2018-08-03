@@ -25,6 +25,16 @@
         <ion-icon name="{{p.icon}}"></ion-icon> <span>{{p.title | translate}}</span>
       </button>
 
+      <ion-list-header *ngIf="user != null">
+          {{'My Account' | translate}}
+      </ion-list-header>
+      <button menuClose ion-item (click)="showOrders()" *ngIf="user != null">
+          <ion-icon name="ios-filing"></ion-icon> <span>{{'My Orders' | translate}}</span>
+      </button>
+      <button ion-item (click)="logOut()" *ngIf="user != null">
+          <ion-icon name="md-log-out"></ion-icon> <span>{{'Logout' | translate}}</span>
+      </button>
+
       <ion-list-header *ngIf="user == null">
         {{'CUSTOMERS' | translate}}
       </ion-list-header>
@@ -52,13 +62,16 @@
       </button>
 
       <ion-list-header>
-        {{'LEGAL' | translate}}
+        {{'HELP & LEGAL' | translate}}
       </ion-list-header>
-      <button menuClose ion-item (click)="openPage('terms')">
+      <button menuClose ion-item (click)="openWpPage(313)">
         <span>{{'Terms and Conditions' | translate}}</span>
       </button>
-      <button menuClose ion-item (click)="openPage('terms')">
+      <button menuClose ion-item (click)="openWpPage(327)">
         <span>{{'Privacy Policy' | translate}}</span>
+      </button>
+      <button menuClose ion-item (click)="openFaq()">
+        <span>{{'FAQs' | translate}}</span>
       </button>
 
     </ion-list>

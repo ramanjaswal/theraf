@@ -1,0 +1,65 @@
+<ion-header>
+    <ion-navbar>
+            <button ion-button icon-only menuToggle clear color="dark">
+                    <ion-icon name="menu"></ion-icon>
+            </button>
+        <ion-title color="dark">{{'My Orders' | translate}}</ion-title>
+        <!-- <ion-buttons end>
+            <button ion-button (click)="dismiss()" class="btn-white">
+            <ion-icon name="md-close"></ion-icon>
+            </button>
+        </ion-buttons> -->
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="card-background-page">
+    <ion-card *ngFor="let order of orders">
+        <ion-item>
+            <h2>#{{order.order_id}} - {{order.vendor.data.display_name}}</h2>
+            
+            <ion-badge [color]=" badgeColor(order.order_status) " item-end>{{this.status[order.order_status]}}</ion-badge>
+        </ion-item>
+        <ion-card-content>
+
+            <div class="order-summary">
+                <ul>
+                    <li *ngFor="let item of order.items">
+                        {{item.service.post_title}} x {{item.quantity}}
+                    </li>
+                </ul>
+            </div>
+    
+                <!-- <ul class="order-items">
+                    <li *ngFor="let item of orderItems(order.items)">
+                        
+                    </li>
+                </ul> -->
+            
+            <ul class="order-summary">
+                <li>
+                    <span>Subtotal</span>
+                    <strong>{{order.sub_total}}</strong>
+                </li>
+                <li>
+                    <span>Shipping</span>
+                    <strong>{{order.shipping}}</strong>
+                </li>
+                <li>
+                    <span>Total</span>
+                    <strong>{{order.total}}</strong>
+                </li>
+            </ul>
+
+            <div class="order-shipping-info" *ngIf="order.order_status > 0 && order.shipment_response">
+                Tracking# {{ getTrackingNumber(order.shipment_response) }}
+            </div>
+
+            <button *ngIf="order.order_status == 0" (click)="deleteOrder(order.id)" ion-button icon-start small color="dark">
+                    <ion-icon name="ios-close-circle"></ion-icon>
+                    <div>Cancel Order</div>
+            </button>
+
+        </ion-card-content>
+        
+    </ion-card>
+</ion-content>
